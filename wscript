@@ -14,18 +14,24 @@ xpyb_version_required  = '1.3'    # optional
 
 def options(ctx):
   print('  %s/options()' %d)
-  ctx.tool_options('gnu_dirs')
-  ctx.tool_options('compiler_cc')
-  ctx.tool_options('python') # options for disabling pyc or pyo compilation
+#  ctx.tool_options('gnu_dirs')
+#  ctx.tool_options('compiler_cc')
+#  ctx.tool_options('python') # options for disabling pyc or pyo compilation
+  ctx.load('gnu_dirs')
+  ctx.load('compiler_cc')
+  ctx.load('python') # options for disabling pyc or pyo compilation
 
 
 def configure(ctx):
   print('  %s/configure()' %d)
 
   env = ctx.env
-  ctx.check_tool('gnu_dirs')
-  ctx.check_tool('compiler_cc')
-  ctx.check_tool('python')
+#  ctx.check_tool('gnu_dirs')
+#  ctx.check_tool('compiler_cc')
+#  ctx.check_tool('python')
+  ctx.load('gnu_dirs')
+  ctx.load('compiler_cc')
+  ctx.load('python')
   ctx.check_python_version((3,1,0))
   ctx.check_python_headers()
 
